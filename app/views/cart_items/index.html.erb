@@ -1,0 +1,23 @@
+<table class="table table-hover table-bordered">
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total Price</th>
+    <th></th>
+  </tr>
+  <tbody class='products'>
+    <% if @cart_items.present? %>
+      <%= render 'cart_items' %>
+    <% else %>
+      <tr>
+        <td colspan="6" class="text-center">Cart is empty</td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>
+<div class="row pull-right">
+  <% if current_user.cart_items.present? %>
+    <%= link_to "Checkout", cart_path(current_user.cart), class: "btn btn-success checkout" %>
+  <% end %>
+</div>

@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= render 'layouts/top_navbar' %>
-<%= yield %>
+  <div class="container" style="margin-top:100px">
+    <div id="notice">
+      <%= flash_messages %>
+    </div>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

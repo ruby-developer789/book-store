@@ -1,0 +1,44 @@
+<table class="table table-hover table-bordered">
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total Price</th>
+  </tr>
+  <tbody class='products'>
+    <% if @cart_items.present? %>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td>
+            <%= cart_item.product_name %>
+            <br/>
+            <% if cart_item.price != cart_item.product_price %>
+              <span class="text-danger" style="font-size:10px;">*This product's price has been changed. Check before confirming order.</span>
+            <% end %>
+          </td>
+          <td>
+            <%= cart_item.quantity %>
+          </td>
+          <td>$<%= cart_item.product_price %></td>
+          <td>$<%= cart_item.total_price %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="2" class="text-right">
+          Grand Total:
+        </td>
+        <td colspan="2" class='total-price'>
+          $<%= total_price %>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td colspan="4" class="text-center">Cart is empty</td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>
+<div class="row pull-right">
+  <%= link_to "Confirm", confirm_order_path, class: 'btn btn-success', data: { confirm: "Are you sure you want to continue?"} %>
+  <%= link_to "Cancel", cart_items_path, class: 'btn btn-danger' %>
+</div>

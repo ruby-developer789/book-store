@@ -1,0 +1,22 @@
+<table class="table table-hover table-bordered">
+  <tr>
+    <th>Order ID</th>
+    <th>Created At</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  <% if @orders.present? %>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.created_at.strftime("%d-%m-%Y %l:%S %p") %></td>
+        <td>$<%= order.total_price %></td>
+        <td><%#= link_to "View Details", order_path(order), class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="4" class="text-center">No Orders</td>
+    </tr>
+  <% end %>
+</table>

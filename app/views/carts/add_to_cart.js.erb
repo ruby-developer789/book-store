@@ -1,0 +1,9 @@
+$("#product-quantity").html("<%= current_user.cart_items_count %>");
+$("#<%= params[:product_id] %> .product-price").html("$<%= @cart_item.total_price %>")
+$(".total-price").html("$<%= total_price %>");
+<% unless params[:quantity] %>
+  $("#notice").html('<div class="alert alert-success">Added to cart.</div>');
+  setTimeout(function(){
+    $('.alert').slideUp(500);
+  }, 2000);
+<% end %>

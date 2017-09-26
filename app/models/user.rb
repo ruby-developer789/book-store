@@ -4,14 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable#, :authentication_keys => [:username]
 
+  ## Associations
   has_many :orders, dependent: :destroy
+  has_many :cart_items, through: :cart
   has_one :cart
 
-  def email_required?
-    false
-  end
-
-  def email_changed?
-    false
+  ##Methods
+  def cart_items_count
+    self.cart_items.count
   end
 end
