@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def expire_cart
-    current_user.cart.destroy if current_user.cart && current_user.cart.is_expired?
+    current_user.cart.destroy if current_user && current_user.cart.try(:is_expired?)
   end
 end

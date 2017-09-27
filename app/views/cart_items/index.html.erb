@@ -17,7 +17,7 @@
   </tbody>
 </table>
 <div class="row pull-right">
-  <% if current_user.cart_items.present? %>
+  <% if @cart_items.present? %>
     <%= link_to "Checkout", cart_path(current_user.cart), class: "btn btn-success checkout" %>
   <% end %>
 </div>

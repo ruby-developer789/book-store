@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
 
   ##Methods
   def cart_items_count
-    self.cart_items.count
+    self.cart_items.map(&:quantity).inject(:+) || 0
   end
 end

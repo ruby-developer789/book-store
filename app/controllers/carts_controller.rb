@@ -3,7 +3,10 @@ class CartsController < ApplicationController
 
   def add_to_cart
     @cart = current_user.cart || current_user.create_cart
-    @cart_item = @cart.add_cart_items(params[:product_id], params[:quantity])
+    @cart_item = @cart.add_cart_item(params[:product_id], params[:quantity])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show

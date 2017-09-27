@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-	def total_price
+  def total_price
     current_user.cart_items.map(&:total_price).inject(:+).to_f
   end
 
