@@ -12,7 +12,7 @@
           <td>
             <%= cart_item.product_name %>
             <br/>
-            <% if cart_item.price != cart_item.product_price %>
+            <% if cart_item.is_price_changed? %>
               <span class="text-danger" style="font-size:10px;">*This product's price has been changed. Check before confirming order.</span>
             <% end %>
           </td>

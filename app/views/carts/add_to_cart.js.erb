@@ -1,6 +1,7 @@
 $("#product-quantity").html("<%= current_user.cart_items_count %>");
 $("#<%= params[:product_id] %> .product-price").html("$<%= @cart_item.total_price %>")
 $(".total-price").html("$<%= total_price %>");
+$("span.price_changed").remove();
 <% unless params[:quantity] %>
   $("#notice").html('<div class="alert alert-success">Added to cart.</div>');
   setTimeout(function(){

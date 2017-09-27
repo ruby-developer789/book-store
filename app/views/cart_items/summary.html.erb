@@ -13,6 +13,15 @@
           <td><%= cart_item.total %></td>
         </tr>
       <% end %>
+      <tr id="product-count">
+        <th colspan="3">Total Product count : <%= @cart_items.length %></th>
+      </tr>
+      <tr id="product-quantity">
+        <th colspan="3">Total Quantity : <%= @cart_items.map(&:quantity).sum %></th>
+      </tr>
+      <tr id="product-price">
+        <th colspan="3">Total Price : $<%= @cart_items.map(&:total).sum.to_f %></th>
+      </tr>
     <% else %>
       <tr>
         <td colspan="6" class="text-center">No products</td>

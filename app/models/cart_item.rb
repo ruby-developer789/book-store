@@ -13,6 +13,10 @@ class CartItem < ActiveRecord::Base
   end
 
   def self.summary
-    Cart.active.joins(cart_items: :product).select("cart_items.product_id, sum(cart_items.quantity) as quantity, (cart_items.price * cart_items.quantity) as total, products.name as product_name").group(:product_id)
+    Cart.active.joins(cart_items: :product).select("cart_items.product_id, sum(cart_items.quantity) as quantity, sum(cart_items.price * cart_items.quantity) as total, products.name as product_name").group(:product_id)
+  end
+
+  def is_price_changed?
+    self.price != self.product_price
   end
 end
