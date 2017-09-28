@@ -3,6 +3,6 @@ FactoryGirl.define do
     product
     cart
     quantity 1
-    price 10
+    price 24.99
   end
 end
