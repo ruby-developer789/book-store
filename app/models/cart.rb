@@ -8,11 +8,11 @@ class Cart < ActiveRecord::Base
   has_many :cart_items, dependent: :destroy
 
   ## Methods
+
   def add_cart_item(product_id, quantity)
-    product = Product.find(product_id)
-    cart_item = self.cart_items.where(product_id: product_id).try(:first) || self.cart_items.build(product_id: product_id)
-    cart_item.quantity = quantity.presence || (cart_item.quantity.to_i + 1)
-    cart_item.price = product.price
+    cart_item = self.cart_items.where(product_id: product_id).first_or_initialize
+    cart_item.quantity = cart_item.set_quantity(quantity)
+    cart_item.price = cart_item.product_price
     cart_item.save
     cart_item
   end

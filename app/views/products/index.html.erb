@@ -4,7 +4,7 @@
       <div class="col-md-4">
         <h4 class="card-title"><%= p.name %></h4>
         <h5><%= p.price %></h5>
-        <%= link_to "ADD TO CART", add_to_cart_path(product_id: p.id), class: 'btn btn-primary', remote: true %>
+        <%= link_to "ADD TO CART", add_to_cart_path(product_id: p.id), class: 'btn btn-primary', remote: true, method: :post %>
       </div>
     <% end %>
   </div>

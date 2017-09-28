@@ -7,7 +7,7 @@ $(document).on("change", ".update-quantity", function(e){
   var productId = $(this).closest('tr').attr('id');
   $.ajax({
       url: '/carts/add_to_cart',
-      method: 'GET',
+      method: 'POST',
       data: { product_id: productId, quantity: quantity }
     }).success(function (data) {
       console.log(data);

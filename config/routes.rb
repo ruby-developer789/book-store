@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'products#index'
-  get 'carts/add_to_cart' => 'carts#add_to_cart', as: 'add_to_cart'
+  post 'carts/add_to_cart' => 'carts#add_to_cart', as: 'add_to_cart'
   get 'carts/:id' => 'carts#show', as: 'cart'
   get 'cart_items/summary' => 'cart_items#summary', as: 'summary'
   get 'orders/confirm_order' => 'orders#confirm_order', as: 'confirm_order'

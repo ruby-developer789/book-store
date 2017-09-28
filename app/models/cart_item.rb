@@ -8,6 +8,11 @@ class CartItem < ActiveRecord::Base
   delegate :name, :price, to: :product, prefix: true, allow_nil: true
 
   ## Methods
+  def initialize(attributes = {})
+    super
+    self.quantity = 0
+  end
+
   def total_price
     (self.quantity * self.price).to_f
   end
@@ -18,5 +23,9 @@ class CartItem < ActiveRecord::Base
 
   def is_price_changed?
     self.price != self.product_price
+  end
+
+  def set_quantity(quantity)
+    quantity || self.quantity + 1
   end
 end

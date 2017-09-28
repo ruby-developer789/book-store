@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :expire_cart
 
   def index
     @orders = current_user.orders
