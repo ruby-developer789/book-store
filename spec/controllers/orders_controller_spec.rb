@@ -31,7 +31,7 @@ describe OrdersController, type: :controller do
     end
   end
 
-  describe 'GET confirm_order' do
+  describe 'GET confirm' do
     before do
       @user = FactoryGirl.create(:user)
       @request.env["devise.mapping"] = Devise.mappings[:user]
@@ -41,7 +41,7 @@ describe OrdersController, type: :controller do
     end
 
     it 'should redirect to root path' do
-      get :confirm_order
+      get :confirm
       expect(flash[:notice]).to eq("Thanks!!! Order has been placed successfully.")
       expect(response).to redirect_to(root_path)
     end

@@ -19,7 +19,7 @@ RSpec.describe Order, type: :model do
       end
     end
 
-    describe 'confirm_order' do
+    describe 'confirm' do
       before do
         @product = FactoryGirl.create(:product)
         @user = FactoryGirl.create(:user)
@@ -30,7 +30,7 @@ RSpec.describe Order, type: :model do
       it 'should build the order items' do
         order = @user.orders.build
         expect(order.order_items).to eq([])
-        result = order.confirm_order
+        result = order.confirm
         expect(order.order_items).not_to eq([])
         expect(order.order_items[0].quantity).to eq(@cart_item.quantity)
         expect(order.order_items[0].product_id).to eq(@product.id)

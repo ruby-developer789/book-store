@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   after_create :destroy_cart
 
   ## Methods
-  def confirm_order
+  def confirm
     self.user.cart_items.each do |cart_item|
       order_item = self.order_items.build(quantity: cart_item.quantity, price: cart_item.product_price, product_id: cart_item.product_id)
     end

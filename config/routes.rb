@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'carts/add_to_cart' => 'carts#add_to_cart', as: 'add_to_cart'
   get 'carts/:id' => 'carts#show', as: 'cart'
   get 'cart_items/summary' => 'cart_items#summary', as: 'summary'
-  get 'orders/confirm_order' => 'orders#confirm_order', as: 'confirm_order'
+  get 'orders/confirm' => 'orders#confirm', as: 'confirm'
   get 'orders/' => 'orders#index', as: 'orders'
   resources :cart_items
   # Example of regular route:
