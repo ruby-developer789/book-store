@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   ## Associations
   has_many :orders, dependent: :destroy
-  has_many :cart_items, through: :cart
-  has_one :cart
+  has_many :cart_items, through: :cart, dependent: :destroy
+  has_one :cart, dependent: :destroy
 
   ##Methods
   def cart_items_count

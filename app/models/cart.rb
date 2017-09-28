@@ -4,6 +4,7 @@ class Cart < ActiveRecord::Base
   scope :active, -> { where("carts.updated_at > ? ", 2.days.ago) }
 
   ## Associations
+  belongs_to :user
   has_many :cart_items, dependent: :destroy
 
   ## Methods
