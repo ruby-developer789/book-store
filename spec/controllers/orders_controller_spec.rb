@@ -42,8 +42,7 @@ describe OrdersController, type: :controller do
 
     it 'should redirect to root path' do
       get :confirm
-      expect(flash[:notice]).to eq("Thanks!!! Order has been placed successfully.")
-      expect(response).to redirect_to(root_path)
+      expect(response).to be_success
     end
   end
 end

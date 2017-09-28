@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build
     @order.confirm
     respond_to do |format|
-      format.html{ redirect_to root_path, notice: 'Thanks!!! Order has been placed successfully.'}
+      format.html
     end
   end
 end

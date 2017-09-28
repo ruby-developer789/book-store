@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     @cart = current_user.cart || current_user.create_cart
     @cart_item = @cart.add_cart_item(params[:product_id], params[:quantity])
     respond_to do |format|
-      format.js
+      format.html { redirect_to root_path, notice: "Added to cart."}
     end
   end
 

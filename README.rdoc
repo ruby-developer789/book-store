@@ -5,24 +5,22 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rake db:create
 
-* Configuration
+* rake db:migrate
 
-* Database creation
+* rake db:seed
 
-* Database initialization
+* rails server
 
-* How to run the test suite
+Notes:-
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Product listing will be shown without login.
+- For adding products to cart, user has to login to system.
+- For products that were added to cart earlier and whose price has been changed user will be notified about the change and it will be calculated according to new price.
+- After 2 days expiry, cart items will be destroyed.
+- You can access admin panel for CRUD operations by using following URL(No need to authenticate as admin user). localhost:3000/admin
+- For summary page of system, you can access it by localhost:3000/cart_items/summary(For summary, we have assumed the products which are their in user's cart.)
+- Rspec for the mentioned questions are written in cart_system_spec.rb

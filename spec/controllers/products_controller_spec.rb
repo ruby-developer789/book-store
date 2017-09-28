@@ -3,15 +3,10 @@ require 'spec_helper'
 RSpec.describe ProductsController, type: :controller do
 
   describe 'before actions' do
-    it { is_expected.to use_before_action(:authenticate_user!) }
     it { is_expected.to use_before_action(:expire_cart) }
   end
 
   describe "GET 'index'" do
-    before do
-      @user = User.first || FactoryGirl.create(:user)
-      sign_in @user
-    end
 
     it "returns http success" do
       get :index

@@ -23,7 +23,7 @@ RSpec.describe CartsController, type: :controller do
       end
 
       it 'cart item should increment', js: true do
-        post :add_to_cart, { product_id: @product.id, format: :js }
+        post :add_to_cart, { product_id: @product.id }
         expect(@user.cart_items.count).to eq(4)
       end
     end

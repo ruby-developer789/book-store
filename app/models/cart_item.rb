@@ -14,7 +14,7 @@ class CartItem < ActiveRecord::Base
   end
 
   def total_price
-    (self.quantity * self.price).to_f
+    (self.quantity * self.product_price).to_f
   end
 
   def self.summary

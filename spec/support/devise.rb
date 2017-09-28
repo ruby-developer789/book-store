@@ -1,6 +1,6 @@
 module Devise::CapybaraTestHelpers
   def log_in(username, password)
-    visit "/"
+    visit new_user_session_path
     fill_in "user_email", with: username
     fill_in "user_password", with: password
     click_button("Log in")
